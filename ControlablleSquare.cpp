@@ -11,7 +11,7 @@ ControlablleSquare::ControlablleSquare(double w) :
 
 ControlablleSquare::~ControlablleSquare()= default;
 
-void ControlablleSquare::move(double vx, double vy) {
-    x += vx;
-    y += vy;
-}
+//void ControlablleSquare::move(double vx, double vy) {
+//    x += vx;
+//    y += vy;
+//}

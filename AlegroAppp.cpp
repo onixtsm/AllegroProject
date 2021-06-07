@@ -5,37 +5,44 @@
 #include "AlegroAppp.h"
 #include "ShapeFactory.h"
 
+
+int speed = 10;
+
 AllegroApp::AllegroApp() :
         AllegroBase(),
-        playerSquare(30) {
+        playerSquare(30)
+{
     for (int i = 0; i < MAX; i++) {
         if ((i % 2) == 0) {
             ScreenSaver::Instance().add(ShapeFactory::Create(ShapeFactory::RandomCircle));
         } else {
             ScreenSaver::Instance().add(ShapeFactory::Create(ShapeFactory::RandomSquare));
         }
+        ScreenSaver::Instance().add(&playerSquare);
 
     }
 }
 
 void AllegroApp::Fps() {
-    double vx = 0, vy = 0;
-    ScreenSaver::Instance().next();
+    playerSquare.setVx(0);
+    playerSquare.setVy(0);
     if (IsPressed(ALLEGRO_KEY_J)) {
-        vy = 1;
+        playerSquare.setVy(speed);
     }
     if (IsPressed(ALLEGRO_KEY_K)) {
-        vy = -1;
+        playerSquare.setVy(-speed);
     }
     if (IsPressed(ALLEGRO_KEY_H)) {
-        vx = -1;
+        playerSquare.setVx(-speed);
     }
     if (IsPressed(ALLEGRO_KEY_L)) {
-        vx = 1;
+        playerSquare.setVx(speed);
     }
-    playerSquare.move(vx, vy);
+    ScreenSaver::Instance().next();
+//    playerSquare.move(vx, vy);
 }
 
 void AllegroApp::Draw() {
     ScreenSaver::Instance().draw();
+    playerSquare.draw();
 }

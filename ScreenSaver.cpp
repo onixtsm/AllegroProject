@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <valarray>
 #include "ScreenSaver.h"
 
 ScreenSaver::ScreenSaver() :
@@ -26,6 +27,13 @@ void ScreenSaver::add(Shape *shape) {
     size_++;
 }
 
+Shape* ScreenSaver::get(int n) {
+    return shapes[n];
+}
+
+Shape* ScreenSaver::getLast() {
+    return shapes[size_];
+}
 ScreenSaver & ScreenSaver::Instance() {
     static ScreenSaver instance;
     return instance;
@@ -38,10 +46,15 @@ void ScreenSaver::next() {
             Shape *a = shapes[i];
             Shape *b = shapes[j];
             if (overlap(a, b)) {
-                a->setVx((-a->getVx()));
-                b->setVx((-b->getVx()));
-                a->setVy((-a->getVy()));
-                b->setVy((-b->getVy()));
+
+                double va = sqrt(pow(a->getVy(), 2) + pow(a->getVx(), 2));
+                double vb = sqrt(pow(b->getVy(), 2) + pow(b->getVx(), 2));
+
+
+//                a->setVx((-a->getVx()));
+//                b->setVx((-b->getVx()));
+//                a->setVy((-a->getVy()));
+//                b->setVy((-b->getVy()));
             }
         }
     }

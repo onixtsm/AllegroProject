@@ -20,6 +20,7 @@ int main(int argc, char **argv) {
 
     app.Run();
     sleep(60);
+    app.Exit();
     return 0;
 }
 

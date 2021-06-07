@@ -8,7 +8,7 @@
 
 #include "Shape.h"
 
-const int MAX = 100;
+const int MAX = 2;
 
 class ScreenSaver {
 private:
@@ -16,7 +16,7 @@ private:
     int size_;
     ScreenSaver();
 
-    bool overlap(Shape *a, Shape *b);
+    static bool overlap(Shape *a, Shape *b);
 public:
 
     virtual ~ScreenSaver();
@@ -29,6 +29,9 @@ public:
 
     void draw();
 
+    Shape *get(int n);
+
+    Shape *getLast();
 };
 
 

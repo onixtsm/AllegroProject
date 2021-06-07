@@ -6,6 +6,7 @@
 #include "Circle.h"
 #include "Rect.h"
 #include "Square.h"
+#include "ControlablleSquare.h"
 
 
 Shape * ShapeFactory::Create(Type type) {
@@ -16,6 +17,8 @@ Shape * ShapeFactory::Create(Type type) {
             return new Rect(10 + rand() % 30, 10 + rand() % 30);
         case RandomSquare:
             return new Square(10 + rand() % 30);
+        case ContollableSquare:
+            return new ControlablleSquare(30);
 
     }
 }

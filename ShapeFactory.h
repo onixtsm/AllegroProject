@@ -13,7 +13,8 @@ public:
     enum Type {
         RandomCircle,
         RandomRect,
-        RandomSquare
+        RandomSquare,
+        ContollableSquare
     };
 
     static Shape *Create(Type type);
