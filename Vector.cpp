@@ -4,9 +4,9 @@
 
 #include "Vector.h"
 
-Vector::Vector(double vx, double vy){
-    vx = vx;
-    vy = vy;
+Vector::Vector(double vx_, double vy_){
+    vx = vx_;
+    vy = vy_;
     evalSpeed();
 }
 
@@ -41,4 +41,8 @@ double Vector::getSpeed() const {
 
 void Vector::evalSpeed() {
     speed = sqrt(pow(vx, 2) + pow(vy, 2));
+}
+
+double Vector::div(Vector v) {
+    return speed / v.speed;
 }

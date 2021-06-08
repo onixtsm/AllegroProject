@@ -49,6 +49,10 @@ void Shape::move() {
     }
 }
 
+double Shape::area() {
+    return 0;
+}
+
 void Shape::spawn() {
     x = rand() % SCREEN_W;
     y = rand() % SCREEN_H;

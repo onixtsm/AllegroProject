@@ -21,4 +21,5 @@ Shape * ShapeFactory::Create(Type type) {
             return new ControlablleSquare(30);
 
     }
+    return nullptr;
 }

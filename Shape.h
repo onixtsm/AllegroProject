@@ -12,7 +12,6 @@ const ALLEGRO_COLOR BG_COLOR = al_map_rgb(0, 0, 0);
 
 class Shape {
 protected:
-    Vector vector;
     double x;
     double y;
     double w;
@@ -21,6 +20,9 @@ protected:
     ALLEGRO_COLOR color;
 
 public:
+
+    Vector vector;
+
     Shape(double w_, double h_);
     virtual ~Shape() = 0;
 
@@ -49,7 +51,7 @@ public:
     double getM() const;
 
 private:
-    virtual double area();
+    virtual double area() = 0;
 
 };
 

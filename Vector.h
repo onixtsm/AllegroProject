@@ -27,6 +27,8 @@ public:
 
     double getSpeed() const;
 
+    double div(Vector v);
+
 private:
     double vx{};
     double vy{};

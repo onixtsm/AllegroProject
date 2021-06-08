@@ -5,6 +5,9 @@
 #include <iostream>
 #include <valarray>
 #include "ScreenSaver.h"
+#include <cmath>
+
+using namespace std;
 
 ScreenSaver::ScreenSaver() :
         size_(0)
@@ -47,10 +50,38 @@ void ScreenSaver::next() {
             Shape *b = shapes[j];
             if (overlap(a, b)) {
 
-                double va = sqrt(pow(a->getVy(), 2) + pow(a->getVx(), 2));
-                double vb = sqrt(pow(b->getVy(), 2) + pow(b->getVx(), 2));
+                double va = a->vector.getSpeed();
+                double vb = b->vector.getSpeed();
+
+                double phy = asin((a->getVx() * b->getVy() - a->getVy() * b->getVx()) /
+                        (a->vector.getSpeed() * b->vector.getSpeed()));
+                double tetaA = acos(a->getVx() / va);
+                double tetaB = acos(b->getVx() / vb);
+
+                double vaxn = (va * cos(tetaA - phy) * (a->getM() - b->getM()) + 2 * b->getM() * vb * cos(tetaB - phy) * cos(phy) + va *
+                                                                                                                                           sin(tetaA - phy) *
+                                                                                                                                           cos(phy + M_PI / 2)) / (a->getM() + b->getM());
+
+                double vayn = (va * cos(tetaA - phy) * (a->getM() - b->getM()) + 2 * b->getM() * vb * cos(tetaB - phy) * sin(phy) + va *
+                                                                                                                                    sin(tetaA - phy) *
+                                                                                                                                    sin(phy + M_PI / 2)) / (a->getM() + b->getM());
+                double vbyn = (vb * cos(tetaB - phy) * (b->getM() - a->getM()) + 2 * a->getM() * va * cos(tetaA - phy) * sin(phy) + vb *
+                                                                                                                                    sin(tetaB - phy) *
+                                                                                                                                    sin(phy + M_PI / 2)) / (a->getM() + b->getM());
+                double vbxn = (vb * cos(tetaB - phy) * (b->getM() - a->getM()) + 2 * a->getM() * va * cos(tetaA - phy) * cos(phy) + vb *
+                                                                                                                                    sin(tetaB - phy) *
+                                                                                                                                    cos(phy + M_PI / 2)) / (a->getM() + b->getM());
+
+                a->setVx(vaxn);
+                a->setVy(vayn);
+
+                b->setVx(vbxn);
+                b->setVy(vbyn);
+                cout << "=============================" << endl;
 
 
+
+//
 //                a->setVx((-a->getVx()));
 //                b->setVx((-b->getVx()));
 //                a->setVy((-a->getVy()));
@@ -59,6 +90,7 @@ void ScreenSaver::next() {
         }
     }
 }
+
 
 void ScreenSaver::draw() {
     al_clear_to_color(BG_COLOR);

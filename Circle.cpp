@@ -8,6 +8,7 @@
 
 Circle::Circle(double d) :
         Shape(d, d) {
+    m = area();
 }
 
 void Circle::draw() {

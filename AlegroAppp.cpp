@@ -4,6 +4,7 @@
 
 #include "AlegroAppp.h"
 #include "ShapeFactory.h"
+#include "Circle.h"
 
 
 int speed = 10;
@@ -12,15 +13,19 @@ AllegroApp::AllegroApp() :
         AllegroBase(),
         playerSquare(30)
 {
-    for (int i = 0; i < MAX; i++) {
-        if ((i % 2) == 0) {
-            ScreenSaver::Instance().add(ShapeFactory::Create(ShapeFactory::RandomCircle));
-        } else {
-            ScreenSaver::Instance().add(ShapeFactory::Create(ShapeFactory::RandomSquare));
-        }
-        ScreenSaver::Instance().add(&playerSquare);
+//    for (int i = 0; i < MAX; i++) {
+//        if ((i % 2) == 0) {
+//            ScreenSaver::Instance().add(ShapeFactory::Create(ShapeFactory::RandomCircle));
+//        } else {
+//            ScreenSaver::Instance().add(ShapeFactory::Create(ShapeFactory::RandomSquare));
+//        }
+        //ScreenSaver::Instance().add(&playerSquare);
 
-    }
+        ScreenSaver::Instance().add(ShapeFactory::Create(ShapeFactory::RandomCircle));
+        ScreenSaver::Instance().add(ShapeFactory::Create(ShapeFactory::RandomCircle));
+        ScreenSaver::Instance().add(ShapeFactory::Create(ShapeFactory::RandomCircle));
+
+//    }
 }
 
 void AllegroApp::Fps() {
@@ -44,5 +49,4 @@ void AllegroApp::Fps() {
 
 void AllegroApp::Draw() {
     ScreenSaver::Instance().draw();
-    playerSquare.draw();
 }
