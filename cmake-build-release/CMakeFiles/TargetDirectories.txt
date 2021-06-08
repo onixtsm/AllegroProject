@@ -1,3 +1,0 @@
-/home/onix/works/cpp/allegro/cmake-build-release/CMakeFiles/rebuild_cache.dir
-/home/onix/works/cpp/allegro/cmake-build-release/CMakeFiles/edit_cache.dir
-/home/onix/works/cpp/allegro/cmake-build-release/CMakeFiles/Allegro.dir
