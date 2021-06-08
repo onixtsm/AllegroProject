@@ -14,9 +14,6 @@ public:
 
     virtual ~ControlablleSquare();
 
-    void move(double vx, double vy);
-
-
 };
 
 

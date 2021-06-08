@@ -8,7 +8,7 @@
 
 #include "Shape.h"
 
-const int MAX = 100;
+const int MAX = 2;
 
 class ScreenSaver {
 private:
