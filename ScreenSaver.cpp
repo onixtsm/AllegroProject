@@ -77,15 +77,6 @@ void ScreenSaver::next() {
 
                 b->setVx(vbxn);
                 b->setVy(vbyn);
-                cout << "=============================" << endl;
-
-
-
-//
-//                a->setVx((-a->getVx()));
-//                b->setVx((-b->getVx()));
-//                a->setVy((-a->getVy()));
-//                b->setVy((-b->getVy()));
             }
         }
     }
