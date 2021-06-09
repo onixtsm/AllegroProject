@@ -9,13 +9,11 @@
 #include "Shape.h"
 #include <vector>
 
-using namespace std;
-
 const int MAX = 100;
 
 class ScreenSaver {
 private:
-    vector<Shape *> shapes;
+    std::vector<Shape *> shapes;
 //    Shape* shapes[MAX]{};
     int size_;
     ScreenSaver();

@@ -17,7 +17,7 @@ ScreenSaver::ScreenSaver() :
 ScreenSaver::~ScreenSaver() {
     for (int i = 0; i < size_; i++) {
         delete shapes[i];
-        shapes[i] = 0;
+        shapes[i] = nullptr;
     }
 }
 
@@ -96,7 +96,5 @@ bool ScreenSaver::overlap(Shape *a, Shape *b) {
          (a->getY() + a->getH() / 2 >= b->getY() - b->getH() / 2)) {
         return true;
     }
-
-
     return false;
 }
