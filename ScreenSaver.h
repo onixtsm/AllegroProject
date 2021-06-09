@@ -7,12 +7,16 @@
 
 
 #include "Shape.h"
+#include <vector>
+
+using namespace std;
 
 const int MAX = 100;
 
 class ScreenSaver {
 private:
-    Shape* shapes[MAX]{};
+    vector<Shape *> shapes;
+//    Shape* shapes[MAX]{};
     int size_;
     ScreenSaver();
 

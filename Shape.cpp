@@ -12,7 +12,7 @@ Shape::Shape(double w_, double h_) {
     w = w_;
     h = h_;
     m = area();
-    Vector(0, 0);
+    Velosity(0, 0);
     spawn();
 }
 

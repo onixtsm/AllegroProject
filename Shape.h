@@ -6,7 +6,7 @@
 #define ALLEGRO_SHAPE_H
 
 #include "AllegroBase.hpp"
-#include "Vector.h"
+#include "Velosity.h"
 
 const ALLEGRO_COLOR BG_COLOR = al_map_rgb(0, 0, 0);
 
@@ -21,7 +21,7 @@ protected:
 
 public:
 
-    Vector vector;
+    Velosity vector;
 
     Shape(double w_, double h_);
     virtual ~Shape() = 0;

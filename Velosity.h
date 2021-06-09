@@ -2,20 +2,20 @@
 // Created by onix on 08.06.21.
 //
 
-#ifndef ALLEGRO_VECTOR_H
-#define ALLEGRO_VECTOR_H
+#ifndef ALLEGRO_VELOSITY_H
+#define ALLEGRO_VELOSITY_H
 
 #include <math.h>
 
 
-class Vector {
+class Velosity {
 public:
 
-    Vector(double vx, double vy);
+    Velosity(double vx, double vy);
 
-    Vector();
+    Velosity();
 
-    ~Vector();
+    ~Velosity();
 
     double getVx() const;
 
@@ -27,7 +27,7 @@ public:
 
     double getSpeed() const;
 
-    double div(Vector v);
+    double div(Velosity v);
 
 private:
     double vx{};
@@ -40,4 +40,4 @@ private:
 };
 
 
-#endif //ALLEGRO_VECTOR_H
+#endif //ALLEGRO_VELOSITY_H

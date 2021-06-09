@@ -12,7 +12,6 @@ using namespace std;
 ScreenSaver::ScreenSaver() :
         size_(0)
 {
-    memset(shapes, 0, sizeof(shapes));
 }
 
 ScreenSaver::~ScreenSaver() {
@@ -26,7 +25,7 @@ void ScreenSaver::add(Shape *shape) {
     if (size_ >= MAX) {
         return;
     }
-    shapes[size_] = shape;
+    shapes.push_back(shape);
     size_++;
 }
 
