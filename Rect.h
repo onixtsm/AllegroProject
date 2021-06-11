@@ -15,6 +15,9 @@ public:
     Rect(double w, double h);
 
     virtual void draw();
+
+private:
+    virtual double area();
 };
 
 #endif //ALLEGRO_RECT_H

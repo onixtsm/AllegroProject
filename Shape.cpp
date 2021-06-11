@@ -11,6 +11,8 @@ using namespace std;
 Shape::Shape(double w_, double h_) {
     w = w_;
     h = h_;
+    m = area();
+    Velosity(0, 0);
     spawn();
 }
 
@@ -36,22 +38,26 @@ double Shape::getH() {
 }
 
 void Shape::move() {
-    x += vx;
-    y += vy;
+    x += vector.getVx();
+    y += vector.getVy();
 
     if (x + w / 2 > SCREEN_W || x - w / 2 < 0) {
-        vx = -vx;
+        vector.setVx(-vector.getVx());
     }
     if (y + h / 2 > SCREEN_H || y - h / 2 < 0) {
-        vy = -vy;
+        vector.setVy(-vector.getVy());
     }
+}
+
+double Shape::area() {
+    return 0;
 }
 
 void Shape::spawn() {
     x = rand() % SCREEN_W;
     y = rand() % SCREEN_H;
-    vx = 10 - rand() % 16;
-    vy = 10 - rand() % 16;
+    vector.setVx(10 - rand() % 16);
+    vector.setVy(10 - rand() % 16);
     int r = rand() % 256;
     int g = rand() % 256;
     int b = rand() % 256;
@@ -62,17 +68,21 @@ void Shape::spawn() {
 
 
 void Shape::setVx(double vx) {
-    Shape::vx = vx;
+    Shape::vector.setVx(vx);
 }
 
 void Shape::setVy(double vy) {
-    Shape::vy = vy;
+    Shape::vector.setVy(vy);
 }
 
 double Shape::getVx() const {
-    return vx;
+    return vector.getVx();
 }
 
 double Shape::getVy() const {
-    return vy;
+    return vector.getVy();
+}
+
+double Shape::getM() const {
+    return m;
 }

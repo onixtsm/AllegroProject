@@ -12,3 +12,7 @@ void Rect::draw() {
     double half_h = h/2;
     al_draw_filled_rectangle(x - half_w, y - half_h, x + half_w, y + half_h, color);
 }
+
+double Rect::area() {
+    return w * h;
+}

@@ -3,13 +3,20 @@
 //
 
 #include "Circle.h"
+#include <math.h>
+#define _USE_MATH_DEFINES
 
 Circle::Circle(double d) :
         Shape(d, d) {
+    m = area();
 }
 
 void Circle::draw() {
     al_draw_filled_circle(x, y, w / 2, color);
+}
+
+double Circle::area() {
+    return M_PI * w * w / 2;
 }
 
 

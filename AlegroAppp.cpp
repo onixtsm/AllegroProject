@@ -5,9 +5,6 @@
 #include "AlegroAppp.h"
 #include "ShapeFactory.h"
 
-int speed = 10;
-
-
 AllegroApp::AllegroApp() :
         AllegroBase(),
         playerSquare(30) {
@@ -17,31 +14,28 @@ AllegroApp::AllegroApp() :
         } else {
             ScreenSaver::Instance().add(ShapeFactory::Create(ShapeFactory::RandomSquare));
         }
-        ScreenSaver::Instance().add(&playerSquare);
 
     }
 }
 
 void AllegroApp::Fps() {
-    playerSquare.setVx(0);
-    playerSquare.setVy(0);
-    if (IsPressed(ALLEGRO_KEY_J) || IsPressed(ALLEGRO_KEY_DOWN)) {
-        playerSquare.setVy(speed);
-    }
-    if (IsPressed(ALLEGRO_KEY_K) || IsPressed(ALLEGRO_KEY_UP)) {
-        playerSquare.setVy(-speed);
-    }
-    if (IsPressed(ALLEGRO_KEY_H) || IsPressed(ALLEGRO_KEY_LEFT)) {
-        playerSquare.setVx(-speed);
-    }
-    if (IsPressed(ALLEGRO_KEY_L) || IsPressed(ALLEGRO_KEY_RIGHT)) {
-        playerSquare.setVx(speed);
-    }
+    double vx = 0, vy = 0;
     ScreenSaver::Instance().next();
+    if (IsPressed(ALLEGRO_KEY_J)) {
+        vy = 1;
+    }
+    if (IsPressed(ALLEGRO_KEY_K)) {
+        vy = -1;
+    }
+    if (IsPressed(ALLEGRO_KEY_H)) {
+        vx = -1;
+    }
+    if (IsPressed(ALLEGRO_KEY_L)) {
+        vx = 1;
+    }
+    playerSquare.move(vx, vy);
 }
 
 void AllegroApp::Draw() {
-
     ScreenSaver::Instance().draw();
-    //playerSquare.draw();
 }

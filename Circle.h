@@ -16,6 +16,8 @@ public:
 
     virtual void draw();
 
+private:
+    virtual double area();
 };
 
 

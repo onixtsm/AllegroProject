@@ -7,16 +7,18 @@
 
 
 #include "Shape.h"
+#include <vector>
 
 const int MAX = 2;
 
 class ScreenSaver {
 private:
-    Shape* shapes[MAX]{};
+    std::vector<Shape *> shapes;
+//    Shape* shapes[MAX]{};
     int size_;
     ScreenSaver();
 
-    bool overlap(Shape *a, Shape *b);
+    static bool overlap(Shape *a, Shape *b);
 public:
 
     virtual ~ScreenSaver();
@@ -29,6 +31,9 @@ public:
 
     void draw();
 
+    Shape *get(int n);
+
+    Shape *getLast();
 };
 
 

@@ -6,20 +6,23 @@
 #define ALLEGRO_SHAPE_H
 
 #include "AllegroBase.hpp"
+#include "Velosity.h"
 
 const ALLEGRO_COLOR BG_COLOR = al_map_rgb(0, 0, 0);
 
 class Shape {
 protected:
-    double vx;
-    double vy;
     double x;
     double y;
     double w;
     double h;
+    double m;
     ALLEGRO_COLOR color;
 
 public:
+
+    Velosity vector;
+
     Shape(double w_, double h_);
     virtual ~Shape() = 0;
 
@@ -44,6 +47,11 @@ public:
     double getVx() const;
 
     double getVy() const;
+
+    double getM() const;
+
+private:
+    virtual double area() = 0;
 
 };
 
