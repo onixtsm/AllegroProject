@@ -8,6 +8,7 @@
 
 #include "Shape.h"
 #include <vector>
+#include <ostream>
 
 const int MAX = 100;
 
@@ -34,6 +35,9 @@ public:
     Shape *get(int n);
 
     Shape *getLast();
+
+    void toFile();
+
 };
 
 

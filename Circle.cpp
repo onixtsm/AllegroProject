@@ -3,8 +3,12 @@
 //
 
 #include "Circle.h"
-#include <math.h>
+#include <ostream>
+#include <iostream>
+#include <cmath>
 #define _USE_MATH_DEFINES
+
+using namespace std;
 
 Circle::Circle(double d) :
         Shape(d, d) {
@@ -20,3 +24,14 @@ double Circle::area() {
 }
 
 
+void Circle::toStream(ostream &os) {
+    os << "x:" << getX() << endl;
+    os << "y:" << getY() << endl;
+    os << "Vx:" << getVx() << endl;
+    os << "Vy:" << getVy() << endl;
+    os << "m:" << getM() << endl;
+    os << "W:" << getW() << endl;
+    os << "H:" << getH() << endl;
+
+
+}

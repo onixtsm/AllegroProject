@@ -13,6 +13,18 @@ void Rect::draw() {
     al_draw_filled_rectangle(x - half_w, y - half_h, x + half_w, y + half_h, color);
 }
 
+void Rect::toStream(ostream &os) {
+
+    os << "x:" << getX() << endl;
+    os << "y:" << getY() << endl;
+    os << "Vx:" << getVx() << endl;
+    os << "Vy:" << getVy() << endl;
+    os << "m:" << getM() << endl;
+    os << "W:" << getW() << endl;
+    os << "H:" << getH() << endl;
+}
+
+
 double Rect::area() {
     return w * h;
 }

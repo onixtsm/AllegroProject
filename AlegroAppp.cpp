@@ -43,6 +43,9 @@ void AllegroApp::Fps() {
     if (IsPressed(ALLEGRO_KEY_L)) {
         playerSquare.setVx(speed);
     }
+    if (IsPressed(ALLEGRO_KEY_F5)) {
+       ScreenSaver::Instance().toFile();
+    }
     ScreenSaver::Instance().next();
 //    playerSquare.move(vx, vy);
 }

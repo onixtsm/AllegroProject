@@ -2,8 +2,8 @@
 // Created by onix on 05.06.21.
 //
 #include <allegro5/allegro.h>
+#include <fstream>
 #include "Shape.h"
-
 using namespace std;
 
 
@@ -19,7 +19,6 @@ Shape::Shape(double w_, double h_) {
 
 Shape::~Shape() {
 }
-
 
 double Shape::getX() {
     return x;
@@ -85,4 +84,8 @@ double Shape::getVy() const {
 
 double Shape::getM() const {
     return m;
+}
+
+void Shape::toStream(std::ostream &os) {
+
 }

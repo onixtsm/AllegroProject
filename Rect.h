@@ -16,6 +16,8 @@ public:
 
     virtual void draw();
 
+    virtual void toStream(std::ostream &os);
+
 private:
     virtual double area();
 };

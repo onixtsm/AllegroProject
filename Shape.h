@@ -7,6 +7,7 @@
 
 #include "AllegroBase.hpp"
 #include "Velosity.h"
+#include <ostream>
 
 const ALLEGRO_COLOR BG_COLOR = al_map_rgb(0, 0, 0);
 
@@ -49,6 +50,8 @@ public:
     double getVy() const;
 
     double getM() const;
+
+    virtual void toStream(std::ostream &os);
 
 private:
     virtual double area() = 0;

@@ -5,6 +5,7 @@
 #include <valarray>
 #include "ScreenSaver.h"
 #include <cmath>
+#include <fstream>
 
 using namespace std;
 
@@ -88,7 +89,6 @@ void ScreenSaver::next() {
     }
 }
 
-
 void ScreenSaver::draw() {
     al_clear_to_color(BG_COLOR);
     for (int i = 0; i < size_; i++) {
@@ -104,4 +104,20 @@ bool ScreenSaver::overlap(Shape *a, Shape *b) {
         return true;
     }
     return false;
+}
+
+ostream & operator << (ostream &os, Shape *shape) {
+
+    shape->toStream(os);
+    return os;
+
+}
+
+void ScreenSaver::toFile() {
+    fstream logfile("shape_log.txt", fstream::out);
+    for (int i = 0; i < size_; i++) {
+        logfile << shapes[i] << endl;
+    }
+    logfile.close();
+
 }

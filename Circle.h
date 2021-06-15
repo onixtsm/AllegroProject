@@ -7,6 +7,7 @@
 
 
 #include "Shape.h"
+#include <ostream>
 
 class Circle : public Shape {
 protected:
@@ -18,6 +19,8 @@ public:
 
 private:
     virtual double area();
+
+    virtual void toStream(std::ostream &os);
 };
 
 
