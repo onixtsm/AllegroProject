@@ -11,7 +11,7 @@
 #include <ostream>
 #include <memory>
 
-const int MAX = 2;
+const int MAX = 100;
 
 typedef std::shared_ptr<Shape> SPShape;
 

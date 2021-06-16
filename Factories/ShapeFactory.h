@@ -11,12 +11,11 @@
 
 class ShapeFactory {
 private:
-    static Shape *Create(shape_skeleton skeleton);
 
     static double RandD();
 
 public:
-    static void StartFactory();
+    static Shape *Create(shape_skeleton skeleton);
 };
 
 #endif //ALLEGRO_SHAPEFACTORY_H

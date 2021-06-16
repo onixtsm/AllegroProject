@@ -6,44 +6,14 @@
 #include "../Shapes/Circle.h"
 #include "../Shapes/Rect.h"
 #include "../Shapes/ControlablleSquare.h"
-#include <algorithm>
-#include "../config.h"
+
 
 using namespace std;
-
-void ShapeFactory::StartFactory() {
-
-//    for_each(ShapeArray.begin(), ShapeArray.end(), ShapeFactory::Create());
-
-    for (_List_const_iterator<shape_skeleton> it = ShapeArray.begin(); it != ShapeArray.end(); it++) {
-        ShapeFactory::Create(*it);
-    }
-
-//    switch (type) {
-//
-//    }
-}
 
 Shape *ShapeFactory::Create(shape_skeleton skeleton) {
 
     Shape *shape;
 
-    switch (skeleton.type) {
-        case RandomCircle:
-            shape = new class Circle(10 + rand() % 30);
-        case RandomRect:
-            shape = new class Rect(10 + rand() % 30, 10 + rand() % 30);
-        case RandomSquare:
-            shape = new class Square(10 + rand() % 30);
-//        case ContollableSquare:
-//            return new ControlablleSquare(30);
-        case Circle:
-            shape = new class Circle();
-        case Rect:
-            shape = new class Rect();
-        case Square:
-            shape = new class Square();
-    }
 
     if (!skeleton.x) {
         skeleton.x = RandD();
@@ -72,15 +42,38 @@ Shape *ShapeFactory::Create(shape_skeleton skeleton) {
     }
     ALLEGRO_COLOR color = al_map_rgb(skeleton.c.r, skeleton.c.g, skeleton.c.b);
 
+    switch (skeleton.type) {
+        case RandomCircle:
+            shape = new class Circle(RandD());
+            break;
+        case RandomRect:
+            shape = new class Rect(RandD(), RandD());
+            break;
+        case RandomSquare:
+            shape = new class Square(RandD());
+            break;
+//        case ContollableSquare:
+//            return new ControlablleSquare(30);
+        case Circle:
+            shape = new class Circle(skeleton.w / 2);
+            break;
+        case Rect:
+            shape = new class Rect(skeleton.w, skeleton.h);
+            break;
+        case Square:
+            shape = new class Square(skeleton.w);
+            break;
+    }
+
     shape->setX(skeleton.x);
     shape->setY(skeleton.y);
     shape->setVx(skeleton.vx);
     shape->setVy(skeleton.vy);
-    shape->setW(skeleton.w);
-    shape->setH(skeleton.h);
     shape->setColor(color);
+
+    return shape;
 }
 
 double ShapeFactory::RandD() {
-    return 10 + rand() % 30;
+    return 10 + rand() % 15;
 }

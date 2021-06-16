@@ -4,6 +4,10 @@
 
 #include "AlegroAppp.h"
 #include "../Factories/ShapeFactory.h"
+#include "../config.h"
+#include <algorithm>
+
+using namespace std;
 
 
 int speed = 10;
@@ -11,15 +15,10 @@ int speed = 10;
 AllegroApp::AllegroApp() :
         AllegroBase(),
         playerSquare(30) {
-//    for (int i = 0; i < MAX; i++) {
-//        if ((i % 2) == 0) {
-//            ScreenSaver::Instance().add(ShapeFactory::Create(ShapeFactory::RandomCircle));
-//        } else {
-//            ScreenSaver::Instance().add(ShapeFactory::Create(ShapeFactory::RandomSquare));
-//        }
-    //ScreenSaver::Instance().add(&playerSquare);
 
-    ShapeFactory::StartFactory();
+    for (_List_const_iterator<shape_skeleton> it = ShapeArray.begin(); it != ShapeArray.end(); it++) {
+        ScreenSaver::Instance().add(ShapeFactory::Create(*it));
+    }
 }
 
 

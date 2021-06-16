@@ -15,6 +15,9 @@ Shape::Shape(double w_, double h_) {
     spawn();
 }
 
+Shape::Shape() {
+    Velosity();
+}
 
 Shape::~Shape() {
 }
@@ -89,9 +92,7 @@ void Shape::toStream(std::ostream &os) {
 
 }
 
-Shape::Shape() {
 
-}
 
 void Shape::setX(double x) {
     Shape::x = x;

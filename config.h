@@ -23,8 +23,8 @@ struct Color {
     int g;
     int b;
 
-    bool operator! () {
-        return (r != NULL && g != NULL && b != NULL);
+    bool operator!() {
+        return (r == NULL && g == NULL && b == NULL);
     }
 };
 
@@ -41,14 +41,19 @@ struct shape_skeleton {
     Color c;
 };
 
+/* Use this, to generate shapes. You can choose which shape to take form enum higher. Any field (except type) could be RANDOM
+ * or NULL
+ */
 
 static const std::list<shape_skeleton> ShapeArray = {
-/*    type,     x,      y,      vx,     vy,     w,      h,      color      */
+/*    type,     x,      y,      vx,     vy,     w/r,      h,      color      */
 
-    { Circle,   20,     90,     2,      5,      3,      3,      {2, 200, 255} }
+        {Circle, 20, 90, 2, 5, 30, 30, {255, 0, 0}},
+        {Circle, 200, 600, 2, 5, 60, 30, {0, 255, 0}},
+        {Circle, 500, 40, RANDOM, RANDOM, RANDOM, 0, RANDOM},
+        {RandomCircle }
 
 };
-
 
 
 #endif //ALLEGRO_CONFIG_H
