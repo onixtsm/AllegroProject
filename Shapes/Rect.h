@@ -7,14 +7,17 @@
 
 #include <iostream>
 #include "Shape.h"
-using namespace std;
 
 class Rect : public Shape {
 
 public:
     Rect(double w, double h);
 
+    Rect();
+
     virtual void draw();
+
+    virtual void toStream(std::ostream &os);
 
 private:
     virtual double area();

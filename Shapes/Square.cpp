@@ -13,3 +13,7 @@ void Square::draw() {
     double half = w / 2;
     al_draw_filled_rectangle(x - half, y - half, x + half, y + half, color);
 }
+
+Square::Square() {
+
+}

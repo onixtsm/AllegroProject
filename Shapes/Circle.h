@@ -7,6 +7,7 @@
 
 
 #include "Shape.h"
+#include <ostream>
 
 class Circle : public Shape {
 protected:
@@ -14,10 +15,14 @@ protected:
 public:
     Circle(double r);
 
+    Circle();
+
     virtual void draw();
 
 private:
     virtual double area();
+
+    virtual void toStream(std::ostream &os);
 };
 
 

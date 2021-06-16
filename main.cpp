@@ -1,6 +1,6 @@
 #include <iostream>
-#include "AllegroBase.hpp"
-#include "AlegroAppp.h"
+#include "Allegro/AllegroBase.hpp"
+#include "Allegro/AlegroAppp.h"
 
 
 using namespace std;
