@@ -7,18 +7,16 @@
 
 
 #include "../Shapes/Shape.h"
+#include "../config.h"
 
 class ShapeFactory {
+private:
+    static Shape *Create(shape_skeleton skeleton);
+
+    static double RandD();
+
 public:
-    enum Type {
-        RandomCircle,
-        RandomRect,
-        RandomSquare,
-        ContollableSquare
-    };
-
-    static Shape *Create(Type type);
-
+    static void StartFactory();
 };
 
 #endif //ALLEGRO_SHAPEFACTORY_H

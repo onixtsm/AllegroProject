@@ -25,6 +25,9 @@ public:
     Velosity vector;
 
     Shape(double w_, double h_);
+
+    Shape();
+
     virtual ~Shape() = 0;
 
     double getX();
@@ -52,6 +55,16 @@ public:
     double getM() const;
 
     virtual void toStream(std::ostream &os);
+
+    void setX(double x);
+
+    void setY(double y);
+
+    void setW(double w);
+
+    void setH(double h);
+
+    void setColor(const ALLEGRO_COLOR &color);
 
 private:
     virtual double area() = 0;

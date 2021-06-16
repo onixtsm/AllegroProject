@@ -15,6 +15,8 @@ protected:
 public:
     Circle(double r);
 
+    Circle();
+
     virtual void draw();
 
 private:

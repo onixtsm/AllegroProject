@@ -35,3 +35,7 @@ void Circle::toStream(ostream &os) {
 
 
 }
+
+Circle::Circle() {
+
+}

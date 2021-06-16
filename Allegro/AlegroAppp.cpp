@@ -10,22 +10,18 @@ int speed = 10;
 
 AllegroApp::AllegroApp() :
         AllegroBase(),
-        playerSquare(30)
-{
+        playerSquare(30) {
 //    for (int i = 0; i < MAX; i++) {
 //        if ((i % 2) == 0) {
 //            ScreenSaver::Instance().add(ShapeFactory::Create(ShapeFactory::RandomCircle));
 //        } else {
 //            ScreenSaver::Instance().add(ShapeFactory::Create(ShapeFactory::RandomSquare));
 //        }
-        //ScreenSaver::Instance().add(&playerSquare);
+    //ScreenSaver::Instance().add(&playerSquare);
 
-        ScreenSaver::Instance().add(ShapeFactory::Create(ShapeFactory::RandomCircle));
-        ScreenSaver::Instance().add(ShapeFactory::Create(ShapeFactory::RandomCircle));
-        ScreenSaver::Instance().add(ShapeFactory::Create(ShapeFactory::RandomCircle));
-
-//    }
+    ShapeFactory::StartFactory();
 }
+
 
 void AllegroApp::Fps() {
     playerSquare.setVx(0);

@@ -12,6 +12,8 @@ class Square : public Rect {
 public:
     Square(double w);
 
+    Square();
+
     virtual void draw();
 };
 

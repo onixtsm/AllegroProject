@@ -31,3 +31,7 @@ void Rect::toStream(ostream &os) {
 double Rect::area() {
     return w * h;
 }
+
+Rect::Rect() {
+
+}

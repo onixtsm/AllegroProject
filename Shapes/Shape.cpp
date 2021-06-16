@@ -88,3 +88,27 @@ double Shape::getM() const {
 void Shape::toStream(std::ostream &os) {
 
 }
+
+Shape::Shape() {
+
+}
+
+void Shape::setX(double x) {
+    Shape::x = x;
+}
+
+void Shape::setY(double y) {
+    Shape::y = y;
+}
+
+void Shape::setW(double w) {
+    Shape::w = w;
+}
+
+void Shape::setH(double h) {
+    Shape::h = h;
+}
+
+void Shape::setColor(const ALLEGRO_COLOR &color) {
+    Shape::color = color;
+}
