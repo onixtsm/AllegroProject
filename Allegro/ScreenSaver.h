@@ -6,7 +6,7 @@
 #define ALLEGRO_SCREENSAVER_H
 
 
-#include "Shape.h"
+#include "../Shapes/Shape.h"
 #include <vector>
 #include <ostream>
 #include <memory>

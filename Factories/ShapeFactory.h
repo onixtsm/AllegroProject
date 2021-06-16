@@ -6,7 +6,7 @@
 #define ALLEGRO_SHAPEFACTORY_H
 
 
-#include "Shape.h"
+#include "../Shapes/Shape.h"
 
 class ShapeFactory {
 public:

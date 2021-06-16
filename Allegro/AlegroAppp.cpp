@@ -3,8 +3,7 @@
 //
 
 #include "AlegroAppp.h"
-#include "ShapeFactory.h"
-#include "Circle.h"
+#include "../Factories/ShapeFactory.h"
 
 
 int speed = 10;

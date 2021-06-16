@@ -3,10 +3,9 @@
 //
 
 #include "ShapeFactory.h"
-#include "Circle.h"
-#include "Rect.h"
-#include "Square.h"
-#include "ControlablleSquare.h"
+#include "../Shapes/Circle.h"
+#include "../Shapes/Rect.h"
+#include "../Shapes/ControlablleSquare.h"
 
 
 Shape * ShapeFactory::Create(Type type) {

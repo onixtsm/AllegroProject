@@ -8,7 +8,7 @@
 
 #include "AllegroBase.hpp"
 #include "ScreenSaver.h"
-#include "ControlablleSquare.h"
+#include "../Shapes/ControlablleSquare.h"
 
 class AllegroApp : public AllegroBase {
 private:

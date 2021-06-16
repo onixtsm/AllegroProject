@@ -5,8 +5,8 @@
 #ifndef ALLEGRO_SHAPE_H
 #define ALLEGRO_SHAPE_H
 
-#include "AllegroBase.hpp"
-#include "Velosity.h"
+#include "../Allegro/AllegroBase.hpp"
+#include "../Helpers/Velosity.h"
 #include <ostream>
 
 const ALLEGRO_COLOR BG_COLOR = al_map_rgb(0, 0, 0);

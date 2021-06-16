@@ -3,6 +3,9 @@
 //
 
 #include "Rect.h"
+
+using namespace std;
+
 Rect::Rect(double w, double h) :
         Shape(w, h)
 {
