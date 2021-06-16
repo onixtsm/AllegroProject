@@ -14,25 +14,21 @@ ScreenSaver::ScreenSaver() :
 }
 
 ScreenSaver::~ScreenSaver() {
-    for (int i = 0; i < size_; i++) {
-        delete shapes[i];
-        shapes[i] = nullptr;
-    }
 }
 
 void ScreenSaver::add(Shape *shape) {
     if (size_ >= MAX) {
         return;
     }
-    shapes.push_back(shape);
+    shapes.push_back(SPShape(shape));
     size_++;
 }
 
-Shape *ScreenSaver::get(int n) {
+shared_ptr<Shape> ScreenSaver::get(int n) {
     return shapes[n];
 }
 
-Shape *ScreenSaver::getLast() {
+shared_ptr<Shape> ScreenSaver::getLast() {
     return shapes[size_];
 }
 
@@ -45,8 +41,8 @@ void ScreenSaver::next() {
     for (int i = 0; i < size_; i++) {
         shapes[i]->move();
         for (int j = i + 1; j < size_; j++) {
-            Shape *a = shapes[i];
-            Shape *b = shapes[j];
+            shared_ptr<Shape> a = shapes[i];
+            shared_ptr<Shape> b = shapes[j];
             if (overlap(a, b)) {
 
                 double va = a->vector.getSpeed();
@@ -96,7 +92,7 @@ void ScreenSaver::draw() {
     }
 }
 
-bool ScreenSaver::overlap(Shape *a, Shape *b) {
+bool ScreenSaver::overlap(shared_ptr<Shape> a, shared_ptr<Shape> b) {
     if ((a->getX() - a->getW() / 2 < b->getX() + b->getW() / 2) &&
         (a->getX() + a->getW() / 2 > b->getX() - b->getW() / 2) &&
         (a->getY() - a->getH() / 2 <= b->getY() + b->getH() / 2) &&

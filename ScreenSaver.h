@@ -9,17 +9,20 @@
 #include "Shape.h"
 #include <vector>
 #include <ostream>
+#include <memory>
 
 const int MAX = 100;
 
+typedef std::shared_ptr<Shape> SPShape;
+
+
 class ScreenSaver {
 private:
-    std::vector<Shape *> shapes;
-//    Shape* shapes[MAX]{};
+    std::vector<SPShape> shapes;
     int size_;
     ScreenSaver();
 
-    static bool overlap(Shape *a, Shape *b);
+    static bool overlap(std::shared_ptr<Shape> a, std::shared_ptr<Shape> b);
 public:
 
     virtual ~ScreenSaver();
@@ -32,9 +35,9 @@ public:
 
     void draw();
 
-    Shape *get(int n);
+    std::shared_ptr<Shape> get(int n);
 
-    Shape *getLast();
+    std::shared_ptr<Shape> getLast();
 
     void toFile();
 

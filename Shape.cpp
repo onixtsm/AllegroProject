@@ -4,7 +4,6 @@
 #include <allegro5/allegro.h>
 #include <fstream>
 #include "Shape.h"
-using namespace std;
 
 
 
