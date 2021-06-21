@@ -36,6 +36,13 @@ ScreenSaver &ScreenSaver::Instance() {
     static ScreenSaver instance;
     return instance;
 }
+constexpr double find_speed_x(double va, double vb, double tetaA, double tetaB, double am, double bm, double phy) {
+    return (va * cos(tetaA - phy) * (am - bm) + 2 * bm * vb * cos(tetaB - phy) * cos(phy) + va * sin(tetaA - phy) * cos(phy + M_PI / 2)) / (am + bm);
+}
+
+constexpr double find_speed_y(double va, double vb, double tetaA, double tetaB, double am, double bm, double phy) {
+    return (va * cos(tetaA - phy) * (am - bm) + 2 * bm * vb * cos(tetaB - phy) * sin(phy) + va * sin(tetaA - phy) * sin(phy + M_PI / 2)) / (am + bm);
+}
 
 void ScreenSaver::next() {
     for (int i = 0; i < size_; i++) {
@@ -53,27 +60,11 @@ void ScreenSaver::next() {
                 double tetaA = acos(a->getVx() / va);
                 double tetaB = acos(b->getVx() / vb);
 
-                double vaxn = (va * cos(tetaA - phy) * (a->getM() - b->getM()) +
-                               2 * b->getM() * vb * cos(tetaB - phy) * cos(phy) + va *
-                                                                                  sin(tetaA - phy) *
-                                                                                  cos(phy + M_PI / 2)) /
-                              (a->getM() + b->getM());
+                double vaxn = find_speed_x(va, vb, tetaA, tetaB, a->getM(), b->getM(), phy);
+                double vayn = find_speed_y(va, vb, tetaA, tetaB, a->getM(), b->getM(), phy);
 
-                double vayn = (va * cos(tetaA - phy) * (a->getM() - b->getM()) +
-                               2 * b->getM() * vb * cos(tetaB - phy) * sin(phy) + va *
-                                                                                  sin(tetaA - phy) *
-                                                                                  sin(phy + M_PI / 2)) /
-                              (a->getM() + b->getM());
-                double vbyn = (vb * cos(tetaB - phy) * (b->getM() - a->getM()) +
-                               2 * a->getM() * va * cos(tetaA - phy) * sin(phy) + vb *
-                                                                                  sin(tetaB - phy) *
-                                                                                  sin(phy + M_PI / 2)) /
-                              (a->getM() + b->getM());
-                double vbxn = (vb * cos(tetaB - phy) * (b->getM() - a->getM()) +
-                               2 * a->getM() * va * cos(tetaA - phy) * cos(phy) + vb *
-                                                                                  sin(tetaB - phy) *
-                                                                                  cos(phy + M_PI / 2)) /
-                              (a->getM() + b->getM());
+                double vbxn = find_speed_x(vb, va, tetaB, tetaA, b->getM(), a->getM(), phy);
+                double vbyn = find_speed_y(vb, va, tetaB, tetaA, b->getM(), a->getM(), phy);
 
                 a->setVx(vaxn);
                 a->setVy(vayn);
